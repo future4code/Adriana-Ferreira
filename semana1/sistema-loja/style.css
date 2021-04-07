@@ -1,0 +1,46 @@
+title {
+    color: rgb(12, 24, 12);
+}
+
+header {
+    color: rgb(99, 156, 133);
+}
+
+/*div{
+    background-color: rgb(99,156,133);
+    border: 2px rgb(99, 156, 133);
+}*/
+.saudacao {
+    color: white;
+    border: black;
+    font-size: 80px;
+
+}
+]
+.texto-slogan {
+    color: blanchedalmond;
+    border: 2px rgb(41, 33, 21);
+}
+#texto-destacado {
+    color: green;
+    border: 1px blanchedalmond;
+}
+.nome-loja {
+    background-color: rgb(99, 156, 133);
+    color: green;
+    border: 0px rgb(99, 156, 133);
+    text-align: center;
+    font-size: 80px;
+    font-style: italic;
+    font-family: fantasy;
+}
+.slogan-principal {
+    
+    color: green;
+    border: 1px blanchedalmond;
+    text-align: center;
+    font-style: italic;
+    font-size: 30px;
+    font-family: cursive;
+    margin-top: 0%;
+}

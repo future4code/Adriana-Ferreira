@@ -75,6 +75,10 @@ div img {
     padding: 15px 0px;
 }
 
+#container-de-descricao>p {
+    line-height: 10;
+}
+
 #container-para-comprar {
     background-color: #e7eb90;
 }

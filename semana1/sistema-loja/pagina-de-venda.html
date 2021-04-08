@@ -8,36 +8,70 @@
     <title>Vendas</title>
 </head>
 <body>
-   
-    <table>
-        <tr>
-            <th>Nome do vendedor</th>
-            <th>Produto</th>
-            <th>Quantidade</th>
-        </tr>
-        <tr>
-            <td class="nome-vendedor">Digite seu nome</td>
-            <td>Castanha-do-pará</td>
-            <td class="Quantidade">Digite a quantidade</td>
-        </tr>
-        <tr>
-            <td class="nome-vendedor">Digite seu nome</td>
-            <td>Castanha-de-caju</td>
-            <td class="Quantidade">Digite a quantidade</td>
-        </tr>
-    </table>
-    <table>
-        <tr>
-            <td class="nome-vendedor">Digite seu nome</td>
-            <td>Mirtilo</td>
-            <td class="Quantidade">Digite a quantidade</td>
-        </tr>
-        <tr>
-            <td class="nome-vendedor">Digite seu nome</td>
-            <td>Missô</td>
-            <td class="Quantidade">Digite a quantidade</td>
-        </tr>
-    </table>
-     
+    <div>
+        <header>
+            <h1 class="nome-loja">LongeVida</h1>
+            <p class="slogan-principal">Nutrir-se bem é um ato de amor</p>
+        </header>
+    </div>
+    <br>
+    <br>
+    <br>
+
+    <h2>Cadastro de venda</h2>
+    <form action="">
+        <div>
+            <label for="nome-vendedor">Vendedor(a): </label>
+            <input type="text" id="nomeVendedor" name="vendedor">
+        </div>
+
+        <div>
+            <label for="nome-cliente"> Nome do cliente: </label>
+            <input type="text" id="nomeCliente" name="nome-cliente">
+        </div>        
+
+        <div>
+            <label for="nome-produto"> Nome do produto: </label>
+            <select type="text" id="nomeProduto" name="nome-produto">
+                <option value="alga">Alga</option>
+                <option value="castanha-do-pará">Castanha-do-pará</option>
+                <option value="castanha-de-caju">Castanha-de-caju</option>
+                <option value="mirtilo">Mirtilo</option>
+                <option value="misso">Missô</option>
+                </select>
+        </div>
+
+        <div>
+            <label for="quant-produto"> Quantidade: </label>
+            <input type="number" id="quantidadeProduto" name="quant-produto">
+        </div>
+
+        <div>
+            <label for="pagamento">Forma de pagamento: </label>
+            <select type="text" id="formaPagamento" name="pagamento">
+                <option value="dinheiro">Dinheiro</option>
+                <option value="credito">Crédito</option>
+                <option value="debito">Débito</option>
+                </select>
+        </div>
+
+       <div class="form-add">
+            <button type="1">Confirmar</button>
+        </div>
+    </form>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>   
+
+    <footer>
+        <p><bold><em>Pensou saúde, pensou LongeVida</em></bold></p>
+      </footer> 
+
 </body>
 </html>

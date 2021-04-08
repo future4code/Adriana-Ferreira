@@ -1,25 +1,41 @@
-title {
-    color: rgb(12, 24, 12);
+head {
+     background-color: rgb(200, 216, 210);
+     color: rgb(6, 37, 6);
 }
-
+body {
+     background-color: rgb(198, 219, 211);
+     color: rgb(6, 37, 6);
+}
 header {
-    color: rgb(99, 156, 133);
+    text-align: center;
+}
+footer {
+    text-align: center;
+    font-size: 20px;
+    color: rgb(4, 51, 35);
+  }
+img {
+    width: 110px;
+    height: 96px;
+}
+input {
+    border-radius: 1px;
+    text-justify: distribute;
 }
 
-/*div{
-    background-color: rgb(99,156,133);
-    border: 2px rgb(99, 156, 133);
-}*/
+input {
+    margin-inline: 5px;
+}
+
 .saudacao {
     color: white;
-    border: black;
-    font-size: 80px;
-
+    font-size: 40px;
 }
-]
 .texto-slogan {
-    color: blanchedalmond;
-    border: 2px rgb(41, 33, 21);
+    color: white;
+    font-size: 24px;
+    font-family: cursive;
+    margin-top: 0%;
 }
 #texto-destacado {
     color: green;
@@ -34,13 +50,21 @@ header {
     font-style: italic;
     font-family: fantasy;
 }
-.slogan-principal {
-    
+.slogan-principal {    
     color: green;
     border: 1px blanchedalmond;
     text-align: center;
     font-style: italic;
     font-size: 30px;
     font-family: cursive;
+    margin-top: 0px;
+}
+.frase-de-efeito {
+    color: green;
+    border: 1px blanchedalmond;
+    font-style: italic;
+    font-size: 24px;
+    font-family: cursive;
     margin-top: 0%;
 }
+

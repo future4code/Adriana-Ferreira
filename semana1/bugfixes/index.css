@@ -15,9 +15,6 @@ h2 {
     color: white;
     text-align: center;
 }
-br {
-    line-height: 0px;
-}
 
 input {
     height: 20px;
@@ -107,6 +104,9 @@ div:last-child {
 
 table {
     width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    
 }
 
 td button {

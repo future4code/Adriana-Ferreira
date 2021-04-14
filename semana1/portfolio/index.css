@@ -1,0 +1,27 @@
+* {    
+    background-image:url(paper.gif);
+    background-color: rgb(239, 243, 239);    
+    font-family: cursive;    
+}
+header{
+    line-height: 100px;
+    color: rgb(240, 160, 11);
+    text-align: center;
+    text-emphasis-style: bold;
+    -webkit-text-stroke-width:thin;
+    -webkit-text-stroke-color: black;
+}
+img {
+    width: 10%;
+    height: 10%;
+}
+div {
+    color: rgb(240, 160, 11);
+    text-align: center;
+    -webkit-text-stroke-width:thin;
+    -webkit-text-stroke-color: black;
+}
+section {
+    color: rgb(46, 41, 41);
+    padding-left: 8px;
+}

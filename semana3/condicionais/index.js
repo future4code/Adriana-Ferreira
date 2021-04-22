@@ -10,3 +10,51 @@
 //b) Esse número passou no teste.
 //Se fosse o número 10 não haveria mesnsagem.
 //c) Haverá erro, pois a variável mensagem não é global.
+
+//Exercícios de escrita de código
+
+/*4)
+let idadeUsuario = Number(prompt('Digite sua idade:'))
+if (idadeUsuario >= 18) {
+  console.log('Você pode dirigir')
+}else {
+  console.log('Você não pode dirigir')
+}*/
+
+/*5)
+const turnoEstudo = prompt('Digite o turno no qual você estuda: M (matutino) ou V (Vespertino) ou N (Noturno)')
+if (turnoEstudo === M) {
+  console.log('"Bom dia!"')
+}else if (turnoEstudo === V) {
+  console.log('"Boa tarde!"')
+}else if (turnoEstudo === N){
+  console.log('"Bom dia!"')
+}
+
+/*6)
+ const turnoEstudo = prompt('Digite o turno no qual você estuda: M (matutino) ou V (Vespertino) ou N (Noturno)')
+ switch (turnoEstudo) {
+ case 'M':
+ console.log('"Bom dia!"')
+ break
+ case 'V':
+ console.log('"Boa tarde!""')
+ break
+ case 'N':
+ console.log('"Boa noite!"')
+ break
+ default:
+ console.log('"turno não encontrado"')
+ break
+}*/
+
+/*7)
+const generoFilme = prompt('Qual gênero de filme vamos assistir? Fantasia (F) ou outro (O)')
+const generoFilme = Fantasia
+let precoFilme = prompt('Qual o preço do filme que vamos assistir?')
+let precoFilme = 15
+if (generoFilme && precoFilme) {
+  console.log('"Bom filme"')
+}else {
+  console.log('"Escolha outro filme"')
+}*/

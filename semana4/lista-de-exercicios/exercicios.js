@@ -1,9 +1,13 @@
 //Exercício 1
-meuArray = [0,1,2,3,4,5]
-function inverteArray(array) {
-  novoArray = []
-  for
+meuArray = [0,1,2,3,4,5];
+function inverteArray(array){
+  meuArrayInvertido= [];
+  for(let i= array.length-1; i >=0; i--){
+  meuArrayInvertido.push(array[i]);
+  }
+  return meuArrayInvertido
 }
+console.log('Array invertido:', inverteArray(meuArray));
 
 //Exercício 2
 

@@ -25,8 +25,15 @@ console.log ('O array novo é:', retornaNumerosParesElevadosADois(novoArray));
 //Exercício 3
 
 function retornaNumerosPares (array) {
-   // implemente sua lógica aqui
+  newArray = [];
+  for(let i = 0; i < array.length; i++){
+     if(array[i] % 2 === 0) {
+        newArray.push(array[i]);
+     }
+  }
+  return newArray
 }
+console.log('O array apenas de números pares será=', retornaNumerosPares(array));
 
 //Exercício 4
 

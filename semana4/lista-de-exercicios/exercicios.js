@@ -10,10 +10,17 @@ function inverteArray(array){
 console.log('Array invertido:', inverteArray(meuArray));
 
 //Exercício 2
-
+meuArray = [0,1,2,3,4,5];
 function retornaNumerosParesElevadosADois (array) {
-   // implemente sua lógica aqui
+   novoArray = [];   
+   for (let i = 0; i < array.length; i++) {
+      if (array[i] % 2 === 0) {
+          novoArray.push(array[i]**2);       
+      }
+   }   
+   return novoArray
 }
+console.log ('O array novo é:', retornaNumerosParesElevadosADois(novoArray));
 
 //Exercício 3
 

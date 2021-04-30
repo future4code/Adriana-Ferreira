@@ -7,8 +7,23 @@ imprimirExtrato()
 function imprimirDespesas(despesas){
     let divDespesas = document.getElementById('despesas')
     divDespesas.innerHTML = '<p><u>Despesas Detalhadas</u></p>'
+    const valorCadastro = document.getElementById('valorCadastro')
+    const alimentacao = document.getElementById('alimentacao')
+    const utilidades = document.getElementById('utilidades')
+    const viagem = document.getElementById('viagem')
+ 
+    const despesas = {
+        valor: valorCadastro.value,
+        alimentacao: alimentacao.value,
+        utilidades: utilidades.value,
+        viagem: viagem.value,   
+    }
 
-    // AQUI VEM A IMPLEMENTAÇÃO
+    arrDespesas.push(infoDespesas)
+    valorCadastro.value = ""
+    alimentacao.value = ""
+    utilidades.value = ""
+    viagem.value=""     
 }
 
 
@@ -22,7 +37,7 @@ function imprimirExtrato(){
 
 
     // AQUI VEM A IMPLEMENTAÇÃO
-    bbbbbbbbbbbbbb
+    
 
     divExtrato.innerHTML = `<p>Extrato: Gasto Total: R$${gastoTotal} | Alimentação: R$${gastoAlimentacao} | 
                                         Utilidades: R$${gastoUtilidades} | Viagem: R$${gastoViagem}</p>`

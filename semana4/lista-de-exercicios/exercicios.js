@@ -23,7 +23,7 @@ function retornaNumerosParesElevadosADois (array) {
 console.log ('O array novo é:', retornaNumerosParesElevadosADois(novoArray));
 
 //Exercício 3
-
+meuArray = [0,1,2,3,4,5];
 function retornaNumerosPares (array) {
   newArray = [];
   for(let i = 0; i < array.length; i++){
@@ -33,13 +33,19 @@ function retornaNumerosPares (array) {
   }
   return newArray
 }
-console.log('O array apenas de números pares será=', retornaNumerosPares(array));
+console.log('O array apenas de números pares será=', retornaNumerosPares(meuArray));
 
 //Exercício 4
-
 function retornaMaiorNumero(array) {
-   // implemente sua lógica aqui
+   let numMaior = array[0];
+   for(let i = 1; i < array.lenght; i++){
+      if(array[i] > numMaior){
+         numMaior = array[i]
+      }
+   }
+   return numMaior
 }
+console.log('O número maior é:', numMaior);
 
 //Exercício 5
 

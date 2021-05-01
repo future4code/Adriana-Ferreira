@@ -55,14 +55,22 @@ function retornaQuantidadeElementos (array) {
 //Exercício 6
 
 function retornaExpressoesBooleanas() {
-   // implemente sua lógica aqui
+  let booleanArray = []
+  const respostas = [false, true, true, false, true]
+  return respostas
 }
 
 //Exercício 7
 
 function retornaNNumerosPares(n) {
-   // implemente sua lógica aqui
-}
+   let paresArray = [];
+     for(let x = 0; paresArray.length < n; x++){
+        if(x % 2 === 0){
+           paresArray.push(x)
+        }
+     }
+     return paresArray
+   }
 
 // Exercício 8
 

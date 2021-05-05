@@ -37,7 +37,7 @@ const UserPhoto = styled.img`
 `
 
 const PostPhoto = styled.img`
-  width: 100%;
+  width: 10c0%;
 `
 
 class Post extends React.Component {
@@ -49,7 +49,15 @@ class Post extends React.Component {
   }
 
   onClickCurtida = () => {
-    console.log('Curtiu!')
+    console.log('Curtiu!')   
+      this.setState({
+        curtido: false,
+        numeroCurtidas: this.state.numeroCurtidas - 1        
+    })    
+     this.setState({
+      curtido: !false,
+      numeroCurtidas: this.state.numeroCurtidas + 1        
+  })    
   }
 
   onClickComentario = () => {
@@ -65,10 +73,10 @@ class Post extends React.Component {
     })
   }
 
-  render() {
+  render(){
     let iconeCurtida
 
-    if(this.state.curtido) {
+    if(this.state.curtido) {      
       iconeCurtida = iconeCoracaoPreto
     } else {
       iconeCurtida = iconeCoracaoBranco

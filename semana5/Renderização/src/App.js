@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components'
+import styled from 'styled-components';
 import Post from './components/Post/Post';
 
 const MainContainer = styled.div`
@@ -9,28 +9,43 @@ const MainContainer = styled.div`
   align-items: center;
 `
 
-class App extends React.Component {
-  render() {
-    return (
-      <MainContainer>
-        <Post
-          nomeUsuario={'paulinha'}
-          fotoUsuario={'https://picsum.photos/50/50'}
-          fotoPost={'https://picsum.photos/200/150'}
-        />
-        <Post
-          nomeUsuario={'zeroberto'}
-          fotoUsuario={'https://picsum.photos/400/400?a=1'}
-          fotoPost={'https://picsum.photos/200/150?a=2'}
-        />
-        <Post
-          nomeUsuario={'una'}
-          fotoUsuario={'https://picsum.photos/50/50?a=2'}
-          fotoPost={'https://picsum.photos/200/150?a=3'}
-        />
-      </MainContainer>
-    );
-  }
-}
+export default class App extends React.Component {
+  state = {
+    posts: [
+      {
+        nome: "Paulinha",
+        fotoUser: "https://picsum.photos/50/50",
+        fotoPostada: "https://picsum.photos/200/150",
+        novoPost:""
+      },
+      {
+        nome: "Zeroberto",
+        fotoUsuario: "https://picsum.photos/400/400?a=1",
+        fotoPostada: "https://picsum.photos/200/150?a=2",
+        novoPost:""
+      },
+      {
+        nome: "Una",
+        fotoUsuario: "https://picsum.photos/50/50?a=2",
+        fotoPostada: "https://picsum.photos/200/150?a=3",
+        novoPost:""
+      }   
+    ]
+  };
 
-export default App;
+  render() {
+    const postUser = this.state.posts.map ((posta)=>{
+      return (        
+          <Post>
+          nomeUsuario= {posta.nome}
+          fotoUsuario= {posta.fotoUser}
+          fotoPost= {posta.fotoPostada}            
+          </Post>        
+      );
+    })
+      return (
+          <MainContainer>
+          {postUser}         
+          </MainContainer>            
+      );
+      

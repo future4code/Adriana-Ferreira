@@ -1,5 +1,5 @@
 import React from 'react';
-import {render} from '@testing-library.react'
+
 
 export default class etapa1 extends React.Component {
 
@@ -28,7 +28,10 @@ export default class etapa1 extends React.Component {
            </div> 
 
            <select>
-             <option/>
+             <option value="medioc">Ensino Médio Completo</option>
+             <option value="medioi">Ensino Médio Incompleto</option>
+             <option value="supc">Ensino Superior Completo</option>
+             <option value="supi">Ensino Superior Incompleto</option>
            </select> 
 
            <div>

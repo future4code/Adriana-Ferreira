@@ -1,9 +1,9 @@
 import React from 'react';
-import './App.css';
 import Etapa1 from './components/etapa1';
 import Etapa2 from './components/etapa2';
 import Etapa3 from './components/etapa3';
 import Etapa4 from './components/etapa4';
+import './App.css';
 
 export default class App extends React.Component {
 
@@ -15,16 +15,16 @@ export default class App extends React.Component {
 
     switch (this.state.etapas){
       case "1":
-        this.setState({etapas= "Etapa1"});
+        this.setState({etapas:"1"});
         break;
       case "2":
-        this.setState({etapas= "Etapa2"});
+        this.setState({etapas:"2"});
         break;  
       case "3":
-        this.setState({etapas= "Etapa3"});
+        this.setState({etapas:"3"});
         break;  
       case "4":
-        this.setState({etapas= "Etapa4"});
+        this.setState({etapas:"4"});
         break;  
       default:
         etapas= null;

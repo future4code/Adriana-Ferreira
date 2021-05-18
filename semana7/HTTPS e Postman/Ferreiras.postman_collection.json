@@ -1,0 +1,24 @@
+{
+	"info": {
+		"_postman_id": "85e66c58-4a8d-4666-b4eb-c59dac32af49",
+		"name": "Ferreiras",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Músicas Inpiradoras",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://minha-playlist",
+					"protocol": "https",
+					"host": [
+						"minha-playlist"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

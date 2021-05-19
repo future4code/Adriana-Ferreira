@@ -47,11 +47,12 @@ export default class App extends React.Component {
       }
     
       axios.post(BASE_URL, body, header)
-      .then(() => {
+      .then((name) => {
         alert("Playlist adicionada com sucesso")
         this.setState({inputName: ""})
+        this.getPlayLists()
       })
-      .catch(() => {
+      .catch((err) => {
         alert(err.response.data);
       });
     };

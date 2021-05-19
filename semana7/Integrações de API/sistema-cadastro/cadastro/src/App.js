@@ -1,88 +1,39 @@
-import React from "react"
-import axios from "axios"
-
-const BASE_URL="https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users"
+import React from "react";
+import axios from "axios";
+import TelaListaUsuarios from "./components/TelaListaUsuarios";
+import TelaCadastro from "./components/TelaCadastro";
 
 export default class App extends React.Component {
 
   state = {
-    playlists: [],
-    inputName: ""
-  };
-
-  componentDidMount(){
-    this.getPlayLists();
+    telaAtual: "cadastro",
   }
 
-  handleName = (e) => {
-    this.setState({inputName: e.target.value})
+  escolheTela = () => {
+    switch (this.state.telaAtual){
+      case "cadastro":
+        return <TelaCadastro irParaLista={this.irParaLista}/>
+      case "lista":
+        return <TelaListaUsuarios irParaCadastro={this.irParaCadastro}/>
+      default:
+        return <div>Erro! Página não encontrada.</div>   
+    }
   }
 
-  getPlayLists = () => {
-    const header = {
-      headers: {
-        Authorization: "adriana-ferreira-paiva"
-      }
-    };
+  irParaCadastro = () => {
+    this.setState({telaAtual: "cadastro"})
+  }
 
-    axios
-      .get(BASE_URL, header) 
-      .then((res) => {
-        this.setState({playlists: res.data.result.list});
-      })
-      .catch((err) => {
-        alert(err.response.data);
-      });
-    };
-
-    createPlaylist = () => {
-      const header = {
-        headers: {
-          Authorization: "adriana-ferreira-paiva"
-        }
-      };
-
-      const body = {
-        name: this.state.inputName
-      }
-    
-      axios.post(BASE_URL, body, header)
-      .then((name) => {
-        alert("Playlist adicionada com sucesso")
-        this.setState({inputName: ""})
-        this.getPlayLists()
-      })
-      .catch((err) => {
-        alert(err.response.data);
-      });
-    };
+  irParaLista = () => {
+    this.setState ({telaAtual: "lista"})
+  }
   
-render(){
-   const playlistComponents = this.state.playlists.map((play) => {
-     return <li key={play.id}>{play.name}</li>;
-   });
+render(){   
 
   return (
     <div>  
-      <div>   
-        <h1>Labenusers</h1>
-        <button onClick="">Trocar de página</button>
-      </div>
-
-      <div>  
-        <h2>Criar usuário</h2>
-        <input
-        placeholder="Nome"  
-        value={this.state.inputName} 
-        onChange={this.handleName} />
-        <input
-        placeholder="E-mail"
-        value={this.state.inputEmail}
-        onChange={this.handleEmail}/>
-        <button onClick={this.createPlaylist}>Criar</button>  
-        {playlistComponents}              
-      </div>
+      {this.escolheTela()}
     </div>
-  );
- };
+  )
+ }
 }

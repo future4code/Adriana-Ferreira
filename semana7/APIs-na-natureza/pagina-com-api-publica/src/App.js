@@ -11,7 +11,7 @@ const TelaInteira = styled.div`
    padding:10%;
    height:10%;
    width:80%;
-   margin: 0 auto
+   margin: 0 auto  
 `
 const Botao = styled.button`
    border-radius: 20%;

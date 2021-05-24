@@ -1,13 +1,44 @@
 import React from 'react';
-import TelaPrincipal from './components/TelaPrincipal';
+import styled from "styled-components";
+import Header from './components/Header/Header';
+import PlaylistCreationPage from './components/PlaylistCreationPage/PlaylistCreationPage';
+import PlaylistManagerPage from './components/PlaylistManagerPage/PlaylistManagerPage';
+
+const AppContainer = styled.div`
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+`
 
 
-export default class App extends React.Component {   
-  render() {   
+class App extends React.Component {
+  state = {
+    currentPage: "playlistCreationPage"
+  }
+
+  changePage = (currentPage) => {
+    this.setState({currentPage: currentPage})
+  }
+
+  render () {
+    const renderCurrentPage = () => {
+      if (this.state.currentPage === "playlistCreationPage") {
+        return <PlaylistCreationPage />
+      } else if (this.state.currentPage === "playlistManagerPage") {
+        return <PlaylistManagerPage />
+      }
+    }
+
     return (
-      <div>
-        <TelaPrincipal/>    
-      </div>
+      <AppContainer>
+        <Header 
+          changePage={this.changePage}
+        />
+        {renderCurrentPage()}
+      </AppContainer>
     );
   }
-}  
+}
+
+export default App;

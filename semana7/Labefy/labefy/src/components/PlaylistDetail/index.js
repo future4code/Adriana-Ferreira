@@ -1,8 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import axios from "axios";
-import TrackCard from "../TrackCard/TrackCard";
+import TrackCard from "../TrackCard";
 import { baseUrl, axiosConfig } from "../../constants";
+
 
 const PlaylistDetailContainer = styled.div`
     display: flex;

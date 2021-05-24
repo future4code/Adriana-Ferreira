@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from "styled-components";
-import Header from './components/Header/Header';
-import PlaylistCreationPage from './components/PlaylistCreationPage/PlaylistCreationPage';
-import PlaylistManagerPage from './components/PlaylistManagerPage/PlaylistManagerPage';
+import Header from './components/Header';
+import PlaylistCreationPage from './components/PlaylistCreationPage';
+import PlaylistManagerPage from './components/PlaylistManagerPage';
 
 const AppContainer = styled.div`
   width: 100vw;

@@ -1,10 +1,6 @@
-import styled from 'styled-components'
+import React from 'react'
+import { BaseButton } from './styles'
 
-const BaseButton = styled.button`
-    border-radius: 50%;
-    padding: 20px;
-    outline: none;
-`
 
 export default function ProfileButton({ text, choose }) {
     return (

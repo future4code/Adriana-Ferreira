@@ -1,40 +1,11 @@
-import React, { useState } from "react";
-import styled, { createGlobalStyle } from "styled-components";
-import Home from "./components/Home"
-import Header from "./components/Header"
-import MatchList from "./components/MatchList"
+import React, { useState } from 'react'
+import { GlobalStyle } from '../src/GlobalStyles'
+import { PageContainer } from '../src/GlobalStyles'
+import { Card } from '../src/GlobalStyles'
+import HomeScreen from './components/HomeScreen'
+import MatchScreen from './components/MatchScreen'
+import Header from './components/Header'
 
-const GlobalStyle = createGlobalStyle`
-  *, *:after, *:before {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  body {
-    padding: 0;
-    margin: 0;
-    background-color: #CCCCCC;
-  }
-  button {
-    box-sizing: content-box;
-  }
-`
-
-const PageContainer = styled.div`
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`
-
-const Card = styled.div`
-  width: 500px;
-  display: grid;
-  grid-template-rows: 100px 650px;
-  border-radius: 12px;
-  border: 1px solid #CCCCCC;
-  background: white;
-`
 
 function App() {
   const [pagina, setPagina] = useState('matchs');
@@ -42,11 +13,11 @@ function App() {
   const showPage = () => {
     switch (pagina) {
       case 'home':
-        return <Home />
+        return <HomeScreen />
       case 'matchs':
-        return <MatchList />
+        return <MatchScreen />
       default:
-        return <Home />
+        return <HomeScreen />
     }
   }
 
@@ -62,7 +33,7 @@ function App() {
     <PageContainer>
       <GlobalStyle />
       <Card>
-        <Header changepage={changePage} />
+        <Header changePage={changePage} />
         {showPage()}
       </Card>
     </PageContainer>

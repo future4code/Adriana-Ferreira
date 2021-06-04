@@ -1,22 +1,11 @@
-import { useEffect, useState } from "react";
-import styled from "styled-components";
-import ProfileCard from "../ProfileCard";
-import ProfileButton from "../ProfileButton";
-import * as api from "../constants";
+import React, { useEffect, useState } from "react"
+import { ProfileContainer } from './styles'
+import ProfileCard from "../ProfileCard"
+import ProfileButton from "../ProfileButton"
+import * as api from "../constants"
 
 
-const ProfileContainer = styled.main`
-  padding: 20px 20px 0;
-  display: grid;
-  grid-template-rows: 500px 1fr;
-  & > div {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-  }
-`;
-
-export default function SwipePage() {
+export default function HomeScreen() {
     const [profile, setProfile] = useState({});
     const [error, setError] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
@@ -59,8 +48,8 @@ export default function SwipePage() {
         );
         footerBtns = (
             <>
-                <ProfileButton text="Escolher" choose={() => choosePerson(true)} />
-                <ProfileButton text="Nao escolher" choose={() => choosePerson(false)} />
+                <ProfileButton text="Curti" choose={() => choosePerson(true)} />
+                <ProfileButton text="Não curti" choose={() => choosePerson(false)} />
             </>
         );
     } else {

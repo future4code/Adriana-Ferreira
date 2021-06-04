@@ -1,35 +1,10 @@
-import styled from "styled-components";
-import * as api from "../constants";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react'
+import { ListContainer } from './styles'
+import { ListItem } from './styles'
+import * as api from '../constants'
 
-const ListContainer = styled.main`
-  display: grid;
-  grid-auto-rows: 80px;
-  padding: 10px 20px;
-  grid-gap: 10px;
-  overflow-x: auto;
-`;
 
-const ListItem = styled.article`
-  display: flex;
-  justify-content: flex-start;
-  padding: 4px 10px;
-  & > h3 {
-      align-self: center;
-      padding-left: 15px;
-  }
-  & > div {
-    width: 70px;
-    & > img {
-      border-radius: 50%;
-      height: 100%;
-      width: 100%;
-      object-fit: cover;
-    }
-  }
-`;
-
-export default function MatchList() {
+export default function MatchScreen() {
     const [matches, setMatches] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(false);

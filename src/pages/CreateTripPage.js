@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function HomePage() {
+export default function CreateTripPage() {
     return (
         <div>
-            HomePage
+            CreateTripPage
         </div>
     )
 }

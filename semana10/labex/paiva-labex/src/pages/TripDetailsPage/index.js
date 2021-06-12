@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function CreateTripPage() {
+export const TripDetailsPage = () => {
     return (
         <div>
-            CreateTripPage
+            TripDetailsPage
         </div>
     )
 }

@@ -1,9 +1,10 @@
 import React from 'react'
 
-export default function HomePage() {
+export const CreateTripPage = () => {
     return (
         <div>
-            HomePage
+            CreateTripPage
         </div>
     )
 }
+

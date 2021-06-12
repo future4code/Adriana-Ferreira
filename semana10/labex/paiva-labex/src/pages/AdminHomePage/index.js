@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function TripDetailsPage() {
+export const AdminHomePage = () => {
     return (
         <div>
-            TripDetailsPage
+            AdminHomePage
         </div>
     )
 }

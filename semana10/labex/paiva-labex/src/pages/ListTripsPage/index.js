@@ -1,9 +1,10 @@
 import React from 'react'
 
-export default function LoginPage() {
+export const ListTripsPage = () => {
     return (
         <div>
-            LoginPage
+            ListTripsPage
         </div>
     )
 }
+

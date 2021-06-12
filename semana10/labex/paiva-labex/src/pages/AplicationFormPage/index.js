@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function AdminHomePage() {
+export const ApplicationFormPage = () => {
     return (
         <div>
-            AdminHomePage
+            ApplicationFormPage
         </div>
     )
 }

@@ -1,17 +1,28 @@
 import React from 'react';
-import Typography from '@material-ui/core/Typography';
+import { Typography, Button } from '@material-ui/core';
+import { Link } from "react-router-dom";
+import { ButtonContainerLogin, ButtonContainerAdmin, TextContainer } from './styles';
 
-export const HomePage = () => {
+
+const HomePage = () => {
     return (
         <div>
-            <Link to={'/login'}>
-                <Button>Login</Button>
-            </Link>
-            <Typography variant='h2'>LabeX</Typography>
-            <Typography variant='h3'>EXPLORE O UNIVERSO</Typography>
-            <Link to={'/admin'}>
-                <Button color={'primary'}>Viagens</Button>
-            </Link>
+            <ButtonContainerLogin>
+                <Link to={'/login'}>
+                    <Button variant={'outlined'} color={'primary'}>Login</Button>
+                </Link>
+            </ButtonContainerLogin>
+            <TextContainer>
+                <Typography variant='h1' align={'center'} gutterBottom>LabeX</Typography>
+                <Typography variant='h4' gutterBottom>EXPLORE O UNIVERSO</Typography>
+            </TextContainer>
+            <ButtonContainerAdmin>
+                <Link to={'/viagens/lista'}>
+                    <Button variant={'outlined'} color={'primary'}>Viagens</Button>
+                </Link>
+            </ButtonContainerAdmin>
         </div>
     )
 }
+
+export default HomePage;

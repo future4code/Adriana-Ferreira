@@ -8,11 +8,11 @@ import axios from 'axios';
 const CandidateItem = (props) => {
 
     const approveCandidate = () => {
-        props.decideCandidate(true)
+        props.decideCandidate(true, props.candidate.id)
     }
 
     const rejectCandidate = () => {
-        props.decideCandidate(false)
+        props.decideCandidate(false, props.candidate.id)
     }
 
     return (

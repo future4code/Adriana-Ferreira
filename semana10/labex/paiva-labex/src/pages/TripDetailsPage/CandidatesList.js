@@ -17,7 +17,6 @@ const CandidatesList = (props) => {
                     {props.candidates.map(candidate => {
                         <CandidateItem
                             candidate={candidate}
-                            tripId={props.tripId}
                             decideCandidate={props.decideCandidate}
                         />
                     })}

@@ -5,13 +5,16 @@ import TripInfoCard from './TripInfoCard';
 import { ContentContainer } from './styles';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
+import { useProtectedPage } from '../../hooks/useProtectedPage';
 
 
 const TripDetailsPage = (props) => {
     const [trip, setTrip] = useState()
     const params = useParams()
 
-    useEffect(() => {
+    useProtectedPage()
+
+    const getTripDetail = () => {
         axios.get(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/adriana-paiva/trip/${params.tripId}`, {
             headers: {
                 auth: window.localStorage.getItem('token')
@@ -19,16 +22,23 @@ const TripDetailsPage = (props) => {
         }).then((res) => {
             setTrip(res.data.trip)
         })
+    }
+
+    useEffect(() => {
+        getTripDetail()
     }, [])
 
-    const decideCandidate = (approve) => {
+    const decideCandidate = (approve, candidateId) => {
         const body = {
             approve: approve
         }
-        axios.put(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/adriana-paiva/trips/${props.tripId}/candidates/${props.candidate.id}/decide`, body, {
+
+        axios.put(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/adriana-paiva/trips/${params.tripId}/candidates/${candidateId}/decide`, body, {
             headers: {
                 auth: window.localStorage.getItem('token')
             }
+        }).then(() => {
+            getTripDetail()
         })
     }
 
@@ -39,8 +49,7 @@ const TripDetailsPage = (props) => {
                 <TripInfoCard info={trip} />
                 <CandidatesList
                     candidates={trip.candidates}
-                    tripId={params.tripId}
-                    decideCandidate={this.decideCandidate}
+                    decideCandidate={decideCandidate}
                 />
             </ContentContainer> : <div>Carregando...</div>}
         </div>

@@ -13,7 +13,7 @@ import AdminHomePage from './pages/AdminHomePage';
 import LoginPage from './pages/LoginPage';
 import styled from "styled-components";
 import { MuiPickersUtilsProvider } from '@material-ui/pickers';
-import MomentUtils from '@date-io/moment';
+import DateFnsUtils from '@date-io/date-fns';
 
 
 const AppContainer = styled.div`
@@ -28,7 +28,7 @@ const AppContainer = styled.div`
 const App = () => {
   return (
     <Router>
-      <MuiPickersUtilsProvider utils={MomentUtils}>
+      <MuiPickersUtilsProvider utils={DateFnsUtils}>
         <AppContainer>
           <Switch>
             <Route exact path="/viagens/criar">

@@ -4,9 +4,11 @@ import { Link } from 'react-router-dom';
 import PageTitle from '../../components/PageTitle';
 import { TripListsContainer } from './styles'
 import { useTripsList } from '../../hooks/useTripsList';
+import { useProtectedPage } from '../../hooks/useProtectedPage';
 
 const ListTripsPage = () => {
     const trips = useTripsList()
+    useProtectedPage()
 
     return (
         <TripListsContainer>

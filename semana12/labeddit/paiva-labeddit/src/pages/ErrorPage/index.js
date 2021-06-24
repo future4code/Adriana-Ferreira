@@ -1,6 +1,6 @@
 import React from 'react'
 
-const FeedPage = () => {
+const ErrorPage = () => {
     return (
         <div>
 
@@ -8,6 +8,4 @@ const FeedPage = () => {
     )
 }
 
-export default FeedPage;
-
-
+export default ErrorPage;

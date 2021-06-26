@@ -13,9 +13,13 @@ export const Title = styled.h1`
   text-shadow: 4px 4px 4px #425878;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 `
-export const FeedListContainer = styled.div`
+export const FeedCardContainer = styled.div`
   display:flex;
-  flex-direction:row;
   flex-wrap:wrap;
+  flex-direction:row;
   margin:30px;
+`
+export const FeedCardContent = styled.div`
+  display:flex;
+  flex-direction:column;
 `

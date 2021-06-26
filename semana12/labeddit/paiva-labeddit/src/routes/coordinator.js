@@ -1,11 +1,11 @@
-export const goToLogin = (history) => {
+export const goToLoginPage = (history) => {
     history.push('/login')
 }
 
-export const goToLogin = (history) => {
-    history.push('/login')
+export const goToRegisterPage = (history) => {
+    history.push('/cadastro')
 }
 
-export const goToLogin = (history) => {
+export const goToFeedPage = (history) => {
     history.push('/')
 }

@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { primaryColor, secondaryColor, neutralColor } from '../../constants/colors'
 
 export const Title = styled.h1`
   display:flex;
@@ -39,4 +38,5 @@ export const LoginFormContainer = styled.form`
 export const SignButton = styled.button`
   width: 80vw;
   max-width: 450px;
+  padding:0px;
 `

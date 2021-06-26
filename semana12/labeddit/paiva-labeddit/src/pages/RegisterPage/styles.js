@@ -1,6 +1,4 @@
 import styled from 'styled-components'
-import { primaryColor, secondaryColor, neutralColor } from '../../constants/colors'
-
 
 export const Title = styled.h1`
   display:flex;
@@ -14,4 +12,31 @@ export const Title = styled.h1`
   margin-top:3rem;
   text-shadow: 4px 4px 4px #425878;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+`
+export const RegisterPageContainer = styled.div`
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  width:100vw;
+`
+export const InputsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  width:80vw;
+  max-width:450px;
+  align-items: center;
+  margin-bottom:20px;
+`
+export const LoginFormContainer = styled.form`
+  display:flex;
+  flex-direction:column;
+  width:80vw;
+  max-width:450px;
+  align-items: center;
+  margin-bottom: 20px;
+`
+export const SignButton = styled.button`
+  width: 80vw;
+  max-width: 450px;
+  padding:0px;
 `

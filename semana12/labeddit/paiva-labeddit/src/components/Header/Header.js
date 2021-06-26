@@ -1,18 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { AppBar, Toolbar, IconButton, Typography, InputBase, Button } from '@material-ui/core'
 import { fade, makeStyles } from '@material-ui/core/styles'
+import { useHistory } from 'react-router-dom'
+import { goToLoginPage, goToFeedPage } from '../../routes/coordinator'
 import SearchIcon from '@material-ui/icons/Search'
 import Logo from '../../assets/img/logo.png'
-import { secondaryColor } from '../../constants/colors'
 import { LogoImg } from './styles'
-
 
 const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
-    },
-    menuButton: {
-        marginRight: theme.spacing(2),
     },
     title: {
         flexGrow: 1,
@@ -56,7 +53,7 @@ const useStyles = makeStyles((theme) => ({
         transition: theme.transitions.create('width'),
         width: '100%',
         [theme.breakpoints.up('sm')]: {
-            width: '100ch',
+            width: '110ch',
             '&:focus': {
                 width: '20ch',
             },
@@ -66,26 +63,38 @@ const useStyles = makeStyles((theme) => ({
         flexGrow: 1,
         fontWeight: 'bold',
         padding: 0,
-        display: 'none',
-        [theme.breakpoints.up('sm')]: {
-            display: 'block',
-        },
     }
 }));
 
-const Header = () => {
-    const classes = useStyles();
+const Header = ({ rightButtonText, setRightButtonText }) => {
+    const token = localStorage.getItem('token')
+    const history = useHistory()
+    const classes = useStyles()
+
+    const logout = () => {
+        localStorage.removeItem('token')
+    }
+
+    const rightButtonAction = () => {
+        if (token) {
+            logout()
+            setRightButtonText('Login')
+            goToLoginPage(history)
+        } else {
+            goToLoginPage(history)
+        }
+    }
 
     return (
         <div className={classes.root}>
             <AppBar position="static">
                 <Toolbar>
-                    <IconButton>
+                    <IconButton onClick={() => goToFeedPage(history)}>
                         <LogoImg src={Logo} alt='balão verde' />
+                        <Typography className={classes.title} variant="h6" color={'secondary'} noWrap>
+                            LabEddit!
+                        </Typography>
                     </IconButton>
-                    <Typography className={classes.title} variant="h6" noWrap>
-                        LabEddit!
-                    </Typography>
                     <div className={classes.search}>
                         <div className={classes.searchIcon}>
                             <SearchIcon />
@@ -98,8 +107,11 @@ const Header = () => {
                             inputProps={{ 'aria-label': 'search' }}
                         />
                     </div>
-                    <Button className={classes.button} color='secondaryColor'>Entrar</Button>
-                    <Button className={classes.button} color='secondaryColor'>Cadastre-se</Button>
+                    <IconButton onClick={rightButtonAction}>
+                        <Typography className={classes.title} variant="h6" color={'secondary'} noWrap>
+                            {rightButtonText}
+                        </Typography>
+                    </IconButton>
                 </Toolbar>
             </AppBar>
         </div >

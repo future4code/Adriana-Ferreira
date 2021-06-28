@@ -1,11 +1,12 @@
+import Router from "../src/router/Router";
 import React from 'react';
-import Router from './components/Router'
+import { DivApp } from './globalStyled'
 
 function App() {
   return (
-    <div>
-     <Router/>
-    </div>
+    <DivApp>
+      <Router />
+    </DivApp>
   );
 }
 

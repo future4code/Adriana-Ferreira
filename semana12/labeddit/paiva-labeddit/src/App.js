@@ -2,7 +2,6 @@ import { useState } from "react";
 import GlobalStateContext from "./globalContext/GlobalStateContext";
 import Router from "./routes/Router";
 import { BrowserRouter } from "react-router-dom";
-import "./App.css";
 import styled from "styled-components";
 import { ThemeProvider } from "@material-ui/core/styles";
 import theme from "./constants/theme";

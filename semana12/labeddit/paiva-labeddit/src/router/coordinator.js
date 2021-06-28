@@ -1,12 +1,26 @@
-export const goToHome = (history) => {
+export const goToLogin = (history) => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("username");
     history.push("/");
 };
-export const goToRegister = (history) => {
-    history.push("/register");
+
+export const goToSignUp = (history) => {
+    history.push("/cadastro");
 };
-export const goToLogin = (history) => {
-    history.push("/login");
+
+export const goToPostFeed = (history) => {
+    const token = window.localStorage.getItem("token");
+    if (!token) {
+        alert("Por favor faça o seu login!");
+    } else {
+        history.push("/feed");
+    }
 };
-export const goToPost = (history, id) => {
-    history.push(`/post/${id}`);
+
+export const goToPostDetail = (history, id) => {
+    history.push(`/detail/${id}`);
+};
+
+export const goBack = (history) => {
+    history.goBack();
 };

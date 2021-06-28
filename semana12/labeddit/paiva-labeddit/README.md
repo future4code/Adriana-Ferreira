@@ -1,10 +1,9 @@
 <br/>
-<br/>
 <div justify='center' color='purple' fontWeight='bolder'>
 <h1>LabEddit!</h1>
 </div>
 <hr/>
-<br/>
+
 <div>
 <h3>Projeto de uma rede social</h3>
 </div>
@@ -13,20 +12,19 @@
 <p>Tecnologias utilizadas:</p>
 <br/>
 - axios;
+- 
 - styled-components;
+- 
 - material-ui.
 </br>
 </br>
+<p> Link Surge: 
+  <br/>
+tremendous-disgust.surge.sh
+  <br/>
 <p>O que funciona:</p>
 <br/>
-- item 1
-- item 2
-- item 3
+As funcionalidades básicas solicitadas
 </br>
 <br/>
-<p>O que não funciona:</p>
-<br/>
-- item 1
-- item 2
-- item 3
 

@@ -9,3 +9,4 @@ export const SpaceBeetween = styled.div`
     justify-content: space-between;
 `
 export const DivIconsEmoji = styled.div`
+`

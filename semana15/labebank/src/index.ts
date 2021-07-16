@@ -1,3 +1,5 @@
-import Express from 'express'
-import cors from './cors'
+import { app } from './app'
+import { postNewUsers } from './endpoints/postNewUsers'
 
+
+app.post("/users/create", postNewUsers)

@@ -1,14 +1,13 @@
-
-export type User = {
-    nome: string
-    CPF: string
-    data: string
-    saldo?: number
-    transacoes?: Extrato[]
+export type Transaction = {
+    value: number
+    date: Date
+    description: string
 }
 
-export type Extrato = {
-    valor: number
-    data: number
-    descrição: string
+export type Account = {
+    name: string
+    CPF: string
+    dateOfBirth: Date
+    balance: number
+    statement: Array<Transaction>
 }

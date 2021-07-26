@@ -17,9 +17,13 @@ export default async function getTaskById(
        }
 
        res.status(200).send({
-           ...result,
+           id: result.id,
+           title: result.title,
+           description:result.description,
            deadline:moment(result.deadline, 'YYYY-MM-DD').format('DD/MM/YYYY'),
-           authorId: result.author_id
+           status: result.status,
+           authorId: result.author_id,
+           authorNickname: result.nickname
         })
 
     }catch(error){

@@ -69,3 +69,7 @@ O projeto precisa ter uma **classe** `Purchase`, que receba o **identificador ú
 - Precisa **obrigatoriamente** devolver um array da Classe **Product**
 
 ---
+
+## TABELAS MySQL
+
+CREATE TABLE

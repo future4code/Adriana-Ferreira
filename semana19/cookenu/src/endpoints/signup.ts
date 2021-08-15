@@ -1,11 +1,35 @@
 import { Request, Response } from "express";
-import { UserDatabase } from "../data/UserDatabase";
+import connection from "../connection";
+import { generateHash } from "../services/hashManager";
+import generateId from "../services/idGenerator";
+import {users_cookenu} from "../migrations";
+/**import { UserDatabase } from "../data/UserDatabase";
 import { User } from "../entities/User";
-import { Authenticator } from "../services/Authenticator";
-import { HashManager } from "../services/HashManager";
-import { IdGenerator } from "../services/IdGenerator";
+import { Authenticator } from "../services/authenticator";
+import { HashManager } from "../services/hashManager";
+import { IdGenerator } from "../services/idGenerator";*/
 
-export async function signup (req:Request, res:Response){
+export default async function signup(
+   req: Request,
+   res: Response
+): Promise<void>{
+  try {
+    const {name, email, password} = req.body
+
+    const id: string = generateId()
+
+    const cypherPassword: string = generateHash(password)
+
+    await connection(users_cookenu)
+      .insert({id, name, email, password: cypherPassword})
+
+  } catch (error) {
+    console.log(error.message);
+    res.status(500).send("Internal server error")    
+  }
+}
+
+/**export async function signup (req:Request, res:Response){
     try{
       const {name, email, password, role} = req.body
 
@@ -38,5 +62,5 @@ export async function signup (req:Request, res:Response){
     }catch(error){
         res.status(400).send(error.message)
     }
-}
+}*/
 

@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { UserDatabase } from "../data/UserDatabase";
-import { Authenticator } from "../services/Authenticator";
+import { Authenticator } from "../services/authenticator";
 
 export async function getAllCharacters(req: Request, res: Response){
     try{
@@ -13,7 +13,7 @@ export async function getAllCharacters(req: Request, res: Response){
       }
 
       const authenticator = new Authenticator()
-      const tokenData = authenticator.getTokenData(token)
+      const tokenData = authenticator.getTokenData('token')
       
       if(tokenData.role !== 'ADMIN'){
           res.status(401).send('Área restrita a administradores')

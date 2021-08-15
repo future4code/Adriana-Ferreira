@@ -3,6 +3,7 @@ import connection from "../connection";
 import { generateHash } from "../services/hashManager";
 import generateId from "../services/idGenerator";
 import {users_cookenu} from "../migrations";
+import { generateToken } from "../services/authenticator";
 /**import { UserDatabase } from "../data/UserDatabase";
 import { User } from "../entities/User";
 import { Authenticator } from "../services/authenticator";
@@ -19,6 +20,10 @@ export default async function signup(
     const id: string = generateId()
 
     const cypherPassword: string = generateHash(password)
+
+    const token: string = generateToken({id})
+
+    res.send({token})
 
     await connection(users_cookenu)
       .insert({id, name, email, password: cypherPassword})

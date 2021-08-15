@@ -1,42 +1,35 @@
 import { Request, Response } from "express";
-import { UserDatabase } from "../data/UserDatabase";
-import { User } from "../entities/User";
-import { Authenticator } from "../services/authenticator";
-import { HashManager } from "../services/hashManager";
-import { IdGenerator } from "../services/idGenerator";
+import connection from "../connection";
+import { generateToken } from "../services/authenticator";
+import { compareHash } from "../services/hashManager";
 
-export async function login (req:Request, res:Response){
+export default async function login (req:Request, res:Response): Promise<void>{
     try{
       const {email, password} = req.body
 
-      if(!email || !password){
-          res
-          .status(422)
-          .send(
-              'Insira todos os dados corretamente'
-          );
-      }
-      const userDatabase = new UserDatabase();
-      const user = await userDatabase.findUserByEmail(email);
+      const[user] = await connection(users_cookenu)
+        .where({email})
 
-      if(!user){
-        res.status(409).send('Esse email não está cadastrado');
-      }
-      
-      const hashManager = new HashManager()
-      const passwordIsCorrect = await hashManager.compare(password, user.getPassword());
-      
+        const passwordIsCorrect: boolean = compareHash(password, user.password)
+
       if(!passwordIsCorrect){
-          res.status(401).send('E-mail ou senha incorretos')
-      }
+          res
+          .statusCode = 401
+          throw new Error("Invalid credentials")          
+      }    
+      
+      const token = generateToken({id: user.id})
 
-      const authenticator = new Authenticator()
-      const token = authenticator.generate({id: user.getId(), role:user.getRole()})
-
-      res.status(200).send({message:'Usuário logado com sucesso', token})
+      res.send({token})
       
     }catch(error){
-        res.status(400).send(error.message)
-    }
+        console.log(error.message);
+        
+        if(res.statusCode === 200){
+           res.status(500).send("Internal server error")
+        } else {
+            res.send(error.message)
+        }
+    }   
 }
 

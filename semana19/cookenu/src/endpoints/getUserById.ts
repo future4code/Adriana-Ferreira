@@ -7,10 +7,20 @@ export default async function getUserById (req:Request, res:Response): Promise<v
       const token: string = req.headers.authorization!
       const userId: string = req.params.id
 
-      getTokenData(token)
+      const tokenData = getTokenData(token)
+
+      if(!tokenData){
+        res.statusCode=401
+        throw new Error("Unauthorized")
+    }
 
       const [user] = await connection(users_cookenu)
         .where({id: userId})
+
+        if(!user){
+            res.statusCode=404
+            throw new Error("User not found")
+        }
 
         const {id, email, name} = user 
 

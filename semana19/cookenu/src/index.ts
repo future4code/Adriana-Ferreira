@@ -1,5 +1,5 @@
 import { app } from "./app";
-import createRecipe from "./endpoints/createRecipes";
+import createRecipe from "./endpoints/createRecipe";
 import getProfile from "./endpoints/getProfile";
 import getRecipeById from "./endpoints/getRecipeById";
 import login from "./endpoints/login";

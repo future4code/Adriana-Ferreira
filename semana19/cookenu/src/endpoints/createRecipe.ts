@@ -13,6 +13,16 @@ export default async function createRecipe(
         const {title, description} = req.body
   
         const tokenData = getTokenData(token!)
+
+        if(!tokenData){
+            res.statusCode=401
+            throw new Error("Unauthorized")
+        }
+
+        if(!title || !description){
+            res.statusCode=422
+            throw new Error("'title' and 'description' required")
+        }
   
         const id = generateId() 
         

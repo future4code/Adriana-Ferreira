@@ -8,6 +8,11 @@ export default async function getRecipeById(
       const [recipe] = await connection(recipes_cookenu)
         .where({id: req.params.id})
 
+        if(!recipe){
+            res.statusCode=404
+            throw new Error("Recipe not found")
+        }
+
         res.send({
             id: recipe.id,
             title: recipe.title,

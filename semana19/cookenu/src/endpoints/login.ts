@@ -7,10 +7,15 @@ export default async function login (req:Request, res:Response): Promise<void>{
     try{
       const {email, password} = req.body
 
+      if(!email || !password){
+        res.statusCode=422
+        throw new Error("'email' and 'password' required")
+      }      
+
       const[user] = await connection(users_cookenu)
         .where({email})
 
-        const passwordIsCorrect: boolean = compareHash(password, user.password)
+        const passwordIsCorrect: boolean = compareHash(password, user?.password || '')
 
       if(!passwordIsCorrect){
           res

@@ -2,7 +2,7 @@ import { hash } from "bcryptjs";
 import { generateToken } from "../../services/authenticator";
 import { generateId } from "../../services/idGenerator";
 
-export const createUserBusiness = ({
+export function createUserBusiness = ({
    id,
    name,
    email, 

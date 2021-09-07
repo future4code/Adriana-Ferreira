@@ -1,15 +1,15 @@
 import React from "react";
+import Route from "./route/Route";
+import { GlobalState } from "./global/GlobalState";
 import GlobalStyle from "./globalStyles/GlobalStyles";
-import Home from "./components/Home/Home"
 
 function App() {
-    return (
-        <div>       
-            <Home/>
-            <GlobalStyle />
-        </div>
-    );
+  return (
+     <GlobalState>       
+        <GlobalStyle/>
+        <Route />             
+     </GlobalState>   
+  );
 }
 
 export default App;
-

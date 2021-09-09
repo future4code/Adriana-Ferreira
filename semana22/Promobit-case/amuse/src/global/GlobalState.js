@@ -5,26 +5,34 @@ import axios from "axios";
 
 export const GlobalState = (props) => {
   const [movies, setMovies] = useState([]);  
+  const [loading, setLoading] = useState(false);  
+  const [gender, setGender] = useState('');
        
-  useEffect(() => {    
-      getMovies();
+  useEffect(() => { 
+    getMovies();
     }, []); 
 
   const getMovies = () => {
-      axios.get(BASE_URL)
-      .then((res) => {
-      setMovies(res.data.results)
-          
-    })
-    return movies
-  
-  }  
+    setLoading(true); 
+      axios
+       .get(BASE_URL)
+       .then((res) => {
+         setMovies(res.data.results);
+         setLoading(false);
+      })  
+  }
 
-  console.log(movies)
+  if(loading){
+    return <p>Loading movies...</p>
+  }  
     
   const data = {
     movies,
-    setMovies   
+    setMovies,    
+    gender,
+    setGender,   
+    loading, 
+    setLoading
   };
 
   return (

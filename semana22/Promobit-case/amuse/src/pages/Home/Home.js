@@ -1,19 +1,19 @@
 import React, { useContext } from "react";
-import { MainContainer, Title, ContainerCard} from './styled';
+import { MainContainer, ContainerCard} from './styled';
 import { GlobalStateContext } from "../../global/GlobalStateContext";
 import MovieCard from '../../components/MovieCard/MovieCard';
 import Header from "../../components/Header/Header";
 
 const Home = () => {
-  const { movies } = useContext(GlobalStateContext);
+  const { movies, searchTerm, setSearchTerm } = useContext(GlobalStateContext);
 
     const movieFrames = movies.map((movie) => (
        <MovieCard movie={movie}/>                
-    ));
+    ));    
 
     return (
       <MainContainer>
-        <Header/>
+        <Header movieFrames={movieFrames}/>        
         <ContainerCard>{movieFrames}</ContainerCard>                     
       </MainContainer>
     );

@@ -1,15 +1,15 @@
 import React from 'react';
-import {HeadContainer, Title} from './styled';
+import {HeadContainer, Title, TitleContainer} from './styled';
 import SearchBar from '../SearchBar/SearchBar'
 import SelectGender from '../SelectGender/SelectGender';
 
-function Header(props) {
+const Header = () => {
     
     return (
         <HeadContainer>
-            <div>
+            <TitleContainer>              
                <Title>Popular Movies</Title>               
-            </div>
+            </TitleContainer>
             <SearchBar/>
             <SelectGender/>
         </HeadContainer>

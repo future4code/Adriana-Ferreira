@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const SelectContainer = styled.div`
-  padding: 0.3rem;
+  padding: 0.2rem;
 `
 
 export const SelectField = styled.select`

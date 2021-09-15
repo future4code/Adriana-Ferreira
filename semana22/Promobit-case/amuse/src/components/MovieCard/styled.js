@@ -25,5 +25,13 @@ export const Poster = styled.img`
   transition:transform 450ms;
     :hover{
       transform: scale(1.08);   
-    };  
+    }  
+`
+export const ContainerCard = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 2%;  
+  padding-bottom:1rem;  
 `

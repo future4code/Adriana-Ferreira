@@ -10,7 +10,7 @@ export const SearchContainer = styled.div`
 export const SearchForm = styled.div`
    display: flex;
    flex-direction: row;
-   padding: 0.4rem;
+   padding: 0.2rem;
 `
 export const SearchField = styled.input`
    width: 100%;

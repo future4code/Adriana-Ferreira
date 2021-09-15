@@ -5,35 +5,47 @@ import axios from "axios";
 
 export const GlobalState = (props) => {
   const [movies, setMovies] = useState([]);  
-  const [loading, setLoading] = useState(false);  
-  const [gender, setGender] = useState('');
-       
+  const [loading, setLoading] = useState(false); 
+  const [search, setSearch] = useState(''); 
+  const [filteredMovies, setFilteredMovies] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);  
+  const [totalResults] = useState(100);
+ 
   useEffect(() => { 
     getMovies();
-    }, []); 
+  }, []); 
+  
+  useEffect(() => {
+    setFilteredMovies(
+      movies.filter(movie => {
+        return movie.title.toLowerCase().includes(search.toLowerCase())
+      }))   
+  },[search, movies]);   
 
-  const getMovies = () => {
+  const getMovies = async () => {
     setLoading(true); 
-      axios
-       .get(BASE_URL)
-       .then((res) => {
-         setMovies(res.data.results);
-         setLoading(false);
-      })  
-  }
-
+      const res = await axios.get(BASE_URL);       
+        setMovies(res.data.results);          
+        setLoading(false);   
+  };   
+  
   if(loading){
     return <p>Loading movies...</p>
-  }  
-    
+  };   
+
   const data = {
     movies,
-    setMovies,    
-    gender,
-    setGender,   
+    setMovies,     
     loading, 
-    setLoading
-  };
+    setLoading,
+    search,
+    setSearch,
+    filteredMovies,
+    setFilteredMovies, 
+    currentPage,
+    setCurrentPage,
+    totalResults   
+  };  
 
   return (
     <GlobalStateContext.Provider value={data}>

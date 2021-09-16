@@ -8,7 +8,7 @@ function RouteManager (){
     <BrowserRouter>
        <Switch>
           <Route exact path="/" component={Home} />      
-          <Route exact path="/movie/:id" component={MovieDetails} />     
+          <Route path="/movie/:id" component={MovieDetails} />     
        </Switch>
     </BrowserRouter>
   )

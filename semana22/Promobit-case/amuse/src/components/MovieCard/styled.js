@@ -11,7 +11,7 @@ export const PosterBoard = styled.div`
     border:none;   
     background-color:#120826;
     height:30px;
-    font-size:15px;
+    font-size:15px;  
     :hover{
       background-color:#6336b3
     }
@@ -25,7 +25,7 @@ export const Poster = styled.img`
   transition:transform 450ms;
     :hover{
       transform: scale(1.08);   
-    }  
+    }   
 `
 export const ContainerCard = styled.div`
   display: flex;

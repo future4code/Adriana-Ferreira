@@ -15,7 +15,7 @@ const useRequestDetail = (initialState, url) => {
 
   useEffect(() => {
     getData();
-  }, []);
+  }, [url]);
 
   return data;
 };

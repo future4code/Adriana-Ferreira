@@ -17,7 +17,7 @@ const MovieCard = (props) => {
                 key={movie.id}                       
                 src={`${img_url}${movie.poster_path}`} 
                 alt={movie.title}/>    
-            <Link to={`/movie/${movie.id}`}>              
+            <Link to={`/movie/${movie.id}`} style={{ textDecoration: 'none', color:'#fcba03', justifyContent:'center', display:'flex'}}>              
                 <button>View details</button>                 
             </Link>
         </PosterBoard>       

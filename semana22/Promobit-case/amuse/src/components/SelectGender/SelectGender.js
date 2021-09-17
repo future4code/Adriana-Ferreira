@@ -3,7 +3,7 @@ import { SelectField, SelectContainer} from './styled';
 
 const SelectGender = () => {
     return (
-        <SelectContainer>
+        <SelectContainer>         
             <SelectField>
                 <option disable selected>Select by genre:</option>
                 <option value="action">Action</option>  

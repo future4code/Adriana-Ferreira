@@ -7,11 +7,13 @@ export const MovieDetailsContainer = styled.div`
    align-items: center;
    justify-content:center;       
    color: #fcba03;
-   margin: 2rem;   
+   margin: 1.5rem;   
 `
 export const PosterBoard = styled.div`   
    img{
-      max-height:36rem;   
+      max-height:30rem;      
+      margin-left:2rem;
+      margin-right:2rem;   
    }
 `
 export const InfoBoard = styled.div`   
@@ -29,13 +31,13 @@ export const DetailsButton = styled.button`
   border: none;
   padding:0.5rem;
   margin-top:1rem;
-  margin-left:1.5rem;
+  margin-left:1.5rem;  
   border-radius: 50%;
   :hover{
       background-color: #fcba03;
    } 
   input{
-   height:32px; 
+      height:32px; 
    
   }  
 `

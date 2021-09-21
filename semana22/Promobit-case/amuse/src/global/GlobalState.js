@@ -9,7 +9,7 @@ export const GlobalState = (props) => {
   const [search, setSearch] = useState(''); 
   const [filteredMovies, setFilteredMovies] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);  
-  const [totalResults] = useState(100);
+  const [totalResults, setTotalResults] = useState(100);  
  
   useEffect(() => { 
     getMovies();
@@ -25,10 +25,19 @@ export const GlobalState = (props) => {
   const getMovies = async () => {
     setLoading(true); 
       const res = await axios.get(BASE_URL);       
-        setMovies(res.data.results);          
-        setLoading(false);   
-  };   
+      setMovies(res.data.results);          
+      setLoading(false);   
+  };  
   
+  const genres = [
+    {"id":28,"name":"Action"},{"id":12,"name":"Adventure"},{"id":16,"name":"Animation"},
+    {"id":35,"name":"Comedy"},{"id":80,"name":"Crime"},{"id":99,"name":"Documentary"},
+    {"id":18,"name":"Drama"},{"id":10751,"name":"Family"},{"id":14,"name":"Fantasy"},
+    {"id":36,"name":"History"},{"id":27,"name":"Horror"},{"id":10402,"name":"Music"},
+    {"id":9648,"name":"Mystery"},{"id":10749,"name":"Romance"},{"id":878,"name":"Science Fiction"},
+    {"id":10770,"name":"TV Movie"},{"id":53,"name":"Thriller"},{"id":10752,"name":"War"},{"id":37,"name":"Western"}
+  ];  
+
   if(loading){
     return <p>Loading movies...</p>
   };   
@@ -44,7 +53,9 @@ export const GlobalState = (props) => {
     setFilteredMovies, 
     currentPage,
     setCurrentPage,
-    totalResults   
+    totalResults,  
+    setTotalResults,
+    genres   
   };  
 
   return (

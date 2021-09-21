@@ -4,7 +4,8 @@ export const Paginator = styled.ul`
    display:flex; 
    flex-wrap: wrap; 
    align-items: center;
-   justify-content: center;   
+   justify-content: center; 
+   width:95vw; 
 `
 export const PaginatorNumbers = styled.li`
    text-overflow: ellipsis;
@@ -12,8 +13,7 @@ export const PaginatorNumbers = styled.li`
    color: #381447;    
 `
 export const PageLink = styled.a`
-   padding:0.3rem;
-  
+   padding:0.3rem;  
    text-decoration: none;
    color: #fcba03; 
    :hover{

@@ -1,13 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { img_url } from '../../constants/Urls/img_url';
-import { DetailsButton, InfoBoard, MovieDetailsContainer, PosterBoard} from './styled';
 import { goToHome } from '../../route/coordinator';
 import Arrow from '../../img/arrow.png';
 import { useHistory } from 'react-router';
+import { GlobalStateContext } from "../../global/GlobalStateContext";
+import { DetailsButton, InfoBoard, MovieDetailsContainer, PosterBoard} from './styled';
 
 const MovieDetails = ({match}) => {
-  const history = useHistory();
-  const [item, setItem] = useState([]); 
+  const {item, setItem} = useContext(GlobalStateContext); 
+  const history = useHistory();    
 
   useEffect(() => {
     fetchItem();

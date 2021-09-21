@@ -1,8 +1,8 @@
 import React from 'react';
-import {GenderButton, HeadContainer, Title, TitleContainer} from './styled';
+import {HeadContainer, Title, TitleContainer} from './styled';
 import SearchBar from '../SearchBar/SearchBar';
+import SelectGender from '../SelectGender/SelectGender'
 import { useHistory } from 'react-router';
-import { goToCategories } from '../../route/coordinator';
 
 const Header = () => {
     const history = useHistory();
@@ -12,8 +12,8 @@ const Header = () => {
             <TitleContainer>              
                <Title>Popular Movies</Title>               
             </TitleContainer>
-            <SearchBar/>           
-            <GenderButton onClick={() => goToCategories(history)}>Search by genre</GenderButton>
+            <SearchBar/>  
+            <SelectGender/>                 
         </HeadContainer>
     )
 }

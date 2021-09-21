@@ -9,4 +9,4 @@ export const goToMovieDetails = (history) => {
 export const goToCategories = (history) => {
    history.push("/genre/movie/list");
 };
- 
+

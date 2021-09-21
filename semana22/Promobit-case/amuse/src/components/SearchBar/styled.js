@@ -28,5 +28,5 @@ export const SearchButton = styled.button`
       width: 20px;
       height: 20px;
       object-fit: cover;
-}
+   }
 `

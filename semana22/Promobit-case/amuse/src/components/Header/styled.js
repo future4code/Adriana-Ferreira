@@ -17,15 +17,3 @@ export const TitleContainer = styled.div`
   display: flex;
   flex-direction:row;  
 `
-export const GenderContainer = styled.div`
-  padding: 0.2rem;
-`
-export const GenderButton = styled.button`
-   width:150px;
-   padding: 5px 10px 5px 7px;
-   border: none;
-   border-radius: 3px;
-   outline: none;
-   color:#726fa3;
-   background-color:#f2dc9b;  
-`

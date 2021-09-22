@@ -23,8 +23,8 @@ const MovieDetails = ({match}) => {
   return (
     <div>
       <DetailsButton onClick={()=>goToHome(history)}>
-        <input type="image" src={Arrow} />
-        </DetailsButton>
+        <img type="image" src={Arrow} alt='arrow'/>
+      </DetailsButton>
       <MovieDetailsContainer>      
         <PosterBoard>
             <img

@@ -9,7 +9,7 @@ const MovieCard = () => {
     const { filteredMovies } = useContext(GlobalStateContext);
     const history = useHistory();  
     
-    const movieFrames = filteredMovies.map((movie) => {       
+    const movieFrames = filteredMovies && filteredMovies.map((movie) => {       
     return (
         <PosterBoard>
             <Poster             

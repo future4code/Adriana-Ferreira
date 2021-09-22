@@ -34,9 +34,9 @@ export const DetailsButton = styled.button`
   margin-left:1.5rem;  
   border-radius: 50%;
   :hover{
-      background-color: #fcba03;
+      background-color: #5338ab;
    } 
-  input{
+  img{
       height:32px; 
    
   }  

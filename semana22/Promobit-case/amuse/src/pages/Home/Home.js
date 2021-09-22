@@ -3,7 +3,6 @@ import MovieCard from '../../components/MovieCard/MovieCard';
 import Header from "../../components/Header/Header";
 import { GlobalStateContext } from "../../global/GlobalStateContext";
 import Pagination from "../../components/Pagination/Pagination";
-import axios from 'axios';
 
 const Home = () => {   
   const {setMovies, currentPage, setCurrentPage, totalResults} = useContext(GlobalStateContext); 

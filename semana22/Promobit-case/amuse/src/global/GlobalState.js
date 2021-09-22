@@ -9,7 +9,9 @@ export const GlobalState = (props) => {
   const [search, setSearch] = useState(''); 
   const [filteredMovies, setFilteredMovies] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);  
-  const [totalResults, setTotalResults] = useState(100);  
+  const [totalResults, setTotalResults] = useState(100);     
+  const [currentGenre, setCurrentGenre] = useState([]);   
+  const [item, setItem] = useState([]);
  
   useEffect(() => { 
     getMovies();
@@ -17,10 +19,14 @@ export const GlobalState = (props) => {
   
   useEffect(() => {
     setFilteredMovies(
-      movies.filter(movie => {
+      movies && movies.filter(movie => {
         return movie.title.toLowerCase().includes(search.toLowerCase())
       }))   
   },[search, movies]);   
+
+  useEffect(() => {
+    getMoviesByCategory(currentGenre);
+  }, [currentGenre]);
 
   const getMovies = async () => {
     setLoading(true); 
@@ -29,14 +35,15 @@ export const GlobalState = (props) => {
       setLoading(false);   
   };  
   
-  const genres = [
-    {"id":28,"name":"Action"},{"id":12,"name":"Adventure"},{"id":16,"name":"Animation"},
-    {"id":35,"name":"Comedy"},{"id":80,"name":"Crime"},{"id":99,"name":"Documentary"},
-    {"id":18,"name":"Drama"},{"id":10751,"name":"Family"},{"id":14,"name":"Fantasy"},
-    {"id":36,"name":"History"},{"id":27,"name":"Horror"},{"id":10402,"name":"Music"},
-    {"id":9648,"name":"Mystery"},{"id":10749,"name":"Romance"},{"id":878,"name":"Science Fiction"},
-    {"id":10770,"name":"TV Movie"},{"id":53,"name":"Thriller"},{"id":10752,"name":"War"},{"id":37,"name":"Western"}
-  ];  
+  const getMoviesByCategory = (currentGenre) => { 
+    setLoading(true);   
+    fetch(`https://api.themoviedb.org/3/discover/movie?api_key=bbb3c5956c9ee54b49b8031bbbffd77b&with_genres=${currentGenre}`)
+      .then(data=>data.json())
+      .then(data=>{
+          setMovies(data.results)  
+          setLoading(false);         
+      })      
+  }     
 
   if(loading){
     return <p>Loading movies...</p>
@@ -55,12 +62,15 @@ export const GlobalState = (props) => {
     setCurrentPage,
     totalResults,  
     setTotalResults,
-    genres   
+    item,
+    setItem,    
+    currentGenre,
+    setCurrentGenre    
   };  
 
   return (
-    <GlobalStateContext.Provider value={data}>
-      {props.children}      
+    <GlobalStateContext.Provider value={data}>      
+      {props.children}            
     </GlobalStateContext.Provider>
   );
 }; 

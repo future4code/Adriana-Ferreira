@@ -1,7 +1,9 @@
 import styled from "styled-components";
 
-export const SelectContainer = styled.div`
-  padding: 0.2rem;
+export const SelectContainer = styled.form`
+  display:flex;
+  flex-direction:row;
+  padding: 0.2rem;  
 `
 export const SelectField = styled.select`
    width: 100%;
@@ -11,4 +13,11 @@ export const SelectField = styled.select`
    outline: none;
    color:#726fa3;
    background-color:#f2dc9b;  
+`
+export const RefreshButton = styled.button`
+   background-color:#f2dc9b;
+   img{
+     width:30px;
+     border:none;
+   }
 `

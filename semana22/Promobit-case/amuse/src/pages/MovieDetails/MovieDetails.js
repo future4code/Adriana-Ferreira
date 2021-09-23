@@ -1,44 +1,35 @@
-import React, { useContext, useEffect } from 'react';
+import React from 'react';
+import { BASE_URL,API_KEY} from '../../constants/Urls/base_url';
 import { img_url } from '../../constants/Urls/img_url';
 import { goToHome } from '../../route/coordinator';
-import Arrow from '../../img/arrow.png';
+import arrow from '../../img/arrow.png';
 import { useHistory } from 'react-router';
-import { GlobalStateContext } from "../../global/GlobalStateContext";
+import useRequestDetails from '../../hooks/useRequestDetails';
 import { DetailsButton, InfoBoard, MovieDetailsContainer, PosterBoard} from './styled';
 
 const MovieDetails = ({match}) => {
-  const {item, setItem} = useContext(GlobalStateContext); 
+  const movieDetails = useRequestDetails([],`${BASE_URL}/${match.params.id}?api_key=${process.env.REACT_APP_API_KEY}`)
   const history = useHistory();    
-
-  useEffect(() => {
-    fetchItem();
-  }, []);
-
-  const fetchItem = async () => {
-    const fetchItem = await fetch(`https://api.themoviedb.org/3/movie/${match.params.id}?api_key=bbb3c5956c9ee54b49b8031bbbffd77b`);
-    const item = await fetchItem.json();
-    setItem(item);
-  }    
-
+  console.log(movieDetails)
   return (
     <div>
       <DetailsButton onClick={()=>goToHome(history)}>
-        <img type="image" src={Arrow} alt='arrow'/>
+        <img type="image" src={arrow} alt='arrow'/>
       </DetailsButton>
       <MovieDetailsContainer>      
         <PosterBoard>
             <img
-            src={`${img_url}${item.poster_path}`} 
-            alt={item.title}
+            src={`${img_url}${movieDetails.poster_path}`} 
+            alt={movieDetails.title}
             />
         </PosterBoard>
         <InfoBoard>
-            <h4>{item.title}</h4>
-            <p>"{item.tagline}"</p>
-            <p>Sinpose: {item.overview} </p>    
-            <p>Lançamento: {item.release_date}</p> 
-            <p>Classificação: {item.vote_average}</p> 
-            <p>Idioma: Inglês</p>    
+            <h3><em>{movieDetails.title}</em></h3>
+            <h5>{movieDetails.tagline}</h5>
+            <p>Synopsis: {movieDetails.overview} </p>    
+            <p>Release date: {movieDetails.release_date}</p> 
+            <p>Vote average: {movieDetails.vote_average}</p> 
+            <p>Original language: {movieDetails.original_language}</p>    
         </InfoBoard>       
       </MovieDetailsContainer>
     </div>

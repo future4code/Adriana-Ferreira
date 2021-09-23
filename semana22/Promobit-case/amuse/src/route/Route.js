@@ -3,7 +3,7 @@ import Home from "../pages/Home/Home";
 import MovieDetails from "../pages/MovieDetails/MovieDetails";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
-function RouteManager(){
+const RouteManager = () => {
   return (
     <BrowserRouter>
        <Switch>

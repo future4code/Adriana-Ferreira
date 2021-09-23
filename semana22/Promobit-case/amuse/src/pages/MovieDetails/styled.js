@@ -9,22 +9,29 @@ export const MovieDetailsContainer = styled.div`
    color: #fcba03;
    margin: 1.5rem;   
 `
-export const PosterBoard = styled.div`   
+export const PosterBoard = styled.div`  
+   box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+   max-height:30rem;
+   margin-left:2rem;
+      margin-right:2rem;  
    img{
       max-height:30rem;      
-      margin-left:2rem;
-      margin-right:2rem;   
+       
    }
 `
-export const InfoBoard = styled.div`   
+export const InfoBoard = styled.div`      
+   margin-top:0.2rem;
    max-width: 42rem;  
    font-size: 18px;
    text-align: justify;
-   padding: 1rem;
-   h4{
-       text-align: center;
-       padding-bottom:14px;
+   padding: 0.8rem;   
+   h3{
+      text-align: center;
+      padding-bottom:14px;
    }    
+   h5{
+      text-align: center;      
+   }  
 `
 export const DetailsButton = styled.button`
   background-color:#381447;

@@ -10,12 +10,11 @@ export const GlobalState = (props) => {
   const [filteredMovies, setFilteredMovies] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);  
   const [totalResults, setTotalResults] = useState(100);     
-  const [currentGenre, setCurrentGenre] = useState([]);   
-  const [item, setItem] = useState([]);
+  const [currentGenre, setCurrentGenre] = useState([]);    
  
   useEffect(() => { 
     getMovies();
-  }, []); 
+  }, []);
   
   useEffect(() => {
     setFilteredMovies(
@@ -25,30 +24,39 @@ export const GlobalState = (props) => {
   },[search, movies]);   
 
   useEffect(() => {
-    getMoviesByCategory(currentGenre);
+    getMoviesByGenre(currentGenre);
   }, [currentGenre]);
 
-  const getMovies = async () => {
-    setLoading(true); 
-      const res = await axios.get(BASE_URL);       
-      setMovies(res.data.results);          
-      setLoading(false);   
+  const getMovies = () => {
+      setLoading(true)
+      axios
+        .get(`${BASE_URL}/popular?api_key=${process.env.REACT_APP_API_KEY}`)
+        .then(response => {
+          setMovies(response.data.results)
+          setLoading(false)
+        })      
+        .catch(error => {
+          alert(error.response.data.message)
+        })
   };  
   
-  const getMoviesByCategory = (currentGenre) => { 
+  const getMoviesByGenre = (currentGenre) => { 
     setLoading(true);   
-    fetch(`https://api.themoviedb.org/3/discover/movie?api_key=bbb3c5956c9ee54b49b8031bbbffd77b&with_genres=${currentGenre}`)
-      .then(data=>data.json())
-      .then(data=>{
-          setMovies(data.results)  
-          setLoading(false);         
-      })      
-  }     
+    axios
+      .get(`${BASE_URL}/popular?api_key=${process.env.REACT_APP_API_KEY}&with_genres=${currentGenre}`)
+      .then(response => {
+         setMovies(response.data.results)  
+         setLoading(false);  
+      })
+      .catch(error => {
+        alert(error.response.data.message)
+      })    
+  };  
 
   if(loading){
     return <p>Loading movies...</p>
   };   
-
+  
   const data = {
     movies,
     setMovies,     
@@ -61,15 +69,13 @@ export const GlobalState = (props) => {
     currentPage,
     setCurrentPage,
     totalResults,  
-    setTotalResults,
-    item,
-    setItem,    
+    setTotalResults,   
     currentGenre,
     setCurrentGenre    
   };  
 
   return (
-    <GlobalStateContext.Provider value={data}>      
+    <GlobalStateContext.Provider value={data}>     
       {props.children}            
     </GlobalStateContext.Provider>
   );

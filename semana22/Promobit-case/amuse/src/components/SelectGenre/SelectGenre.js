@@ -3,9 +3,9 @@ import { SelectField, SelectContainer, RefreshButton} from './styled';
 import { GlobalStateContext } from "../../global/GlobalStateContext";
 import { goToHome } from '../../route/coordinator';
 import { useHistory } from 'react-router';
-import Refresh from '../../img/refresh.png';
+import reload from '../../img/reload.png';
 
-const SelectGender = () => {
+const SelectGenre = () => {
     const { setCurrentGenre} = useContext(GlobalStateContext);    
     const history = useHistory();  
     
@@ -26,7 +26,7 @@ const SelectGender = () => {
         <SelectContainer>         
             <SelectField onChange={onChangeGenre} >
                 <option disable selected>Select by genre:</option>
-                {genres && genres.map(genre=>(                 
+                {genres.map(genre=>(                 
                    <option key={genre.id} 
                     value={genre.id}                                                                                      
                     >                   
@@ -35,10 +35,10 @@ const SelectGender = () => {
                 ))}                                   
             </SelectField>
             <RefreshButton onClick={()=>goToHome(history)}>
-               <img type="image" src={Refresh} alt='refresh button'/>
+               <img type="image" src={reload} alt='reload button'/>
             </RefreshButton>
         </SelectContainer>
     )
 }
 
-export default SelectGender;
+export default SelectGenre;

@@ -8,15 +8,22 @@ export const Paginator = styled.ul`
    width:95vw; 
 `
 export const PaginatorNumbers = styled.li`
-   text-overflow: ellipsis;
+   list-style: none;
    font-weight: bold;
    color: #381447;    
 `
 export const PageLink = styled.a`
    padding:0.3rem;  
    text-decoration: none;
+   background-color: #5338ab;
+   margin:0.2rem;
    color: #fcba03; 
    :hover{
       color:white;
+      background-color: #120826;
+      cursor: pointer;
+   }
+   :active{
+      background-color: #120826;
    }
 `

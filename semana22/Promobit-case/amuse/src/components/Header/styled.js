@@ -11,6 +11,7 @@ export const HeadContainer = styled.header`
 export const Title = styled.h2`  
   color: #fcba03;
   font-weight: bolder; 
+  font-size: 26px;
   padding: 0.2rem; 
 `
 export const TitleContainer = styled.div`

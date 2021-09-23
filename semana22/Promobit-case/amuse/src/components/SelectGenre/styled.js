@@ -16,8 +16,11 @@ export const SelectField = styled.select`
 `
 export const RefreshButton = styled.button`
    background-color:#f2dc9b;
+   border:none;
+   border-radius: 3px;
+   outline: none;
    img{
      width:30px;
-     border:none;
+     
    }
 `

@@ -3,24 +3,31 @@ import MovieCard from '../../components/MovieCard/MovieCard';
 import Header from "../../components/Header/Header";
 import { GlobalStateContext } from "../../global/GlobalStateContext";
 import Pagination from "../../components/Pagination/Pagination";
-import axios from 'axios';
+import {BASE_URL} from "../../constants/Urls/base_url";
+import {HomeContainer} from "./styled";
+import axios from "axios";
 
 const Home = () => {   
-  const {setMovies, currentPage, setCurrentPage, totalResults} = useContext(GlobalStateContext); 
-    
-  const nextPage = (pageNumber) => {
-    fetch(`https://api.themoviedb.org/3/movie/popular?api_key=bbb3c5956c9ee54b49b8031bbbffd77b&page=${pageNumber}`)
-      .then(data=>data.json())
-      .then(data=>{
-        setMovies(data.results)
-        setCurrentPage(pageNumber)     
-      })
+  const {setMovies, currentPage, setCurrentPage, totalResults, setLoading} = useContext(GlobalStateContext); 
+  
+  const nextPage = async (pageNumber) => {
+    setLoading(true)
+    await axios
+      .get(`${BASE_URL}/popular?api_key=${process.env.REACT_APP_API_KEY}&page=${pageNumber}`)
+      .then(response => {
+         setMovies(response.data.results)
+         setCurrentPage(pageNumber) 
+         setLoading(false)
+      })      
+      .catch(error => {
+         alert(error.response.data.message)
+      })     
   }
 
   const numberPages = Math.floor(totalResults/5)   
 
   return (
-    <div>
+    <HomeContainer>
       <Header/>        
       <MovieCard/>        
         {totalResults > 20? 
@@ -30,7 +37,7 @@ const Home = () => {
             currentPage={currentPage}
           />:''
         }
-    </div>
+    </HomeContainer>
   );
 };
 

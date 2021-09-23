@@ -21,7 +21,7 @@ export const Poster = styled.img`
   object-fit: contain;
   width:100%;
   max-height:310px;
-  margin-right: 1.8rem;
+  margin-right: 1.8rem;  
   transition:transform 450ms;
     :hover{
       transform: scale(1.08);   

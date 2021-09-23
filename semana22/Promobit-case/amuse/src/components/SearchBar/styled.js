@@ -3,7 +3,7 @@ import styled from "styled-components"
 export const SearchContainer = styled.div`
    input{
       background-color: #f2dc9b;     
-      width: 19rem;
+      width: 18rem;
       height: 30px;      
    }  
 ` 

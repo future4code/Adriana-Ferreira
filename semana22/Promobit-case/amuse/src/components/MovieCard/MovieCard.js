@@ -1,15 +1,13 @@
 import React, {useContext} from 'react';
-import { useHistory } from 'react-router';
 import { img_url } from '../../constants/Urls/img_url';
 import {PosterBoard, Poster, ContainerCard} from './styled';
 import { GlobalStateContext } from "../../global/GlobalStateContext";
 import { Link } from 'react-router-dom';
 
 const MovieCard = () => {      
-    const { filteredMovies } = useContext(GlobalStateContext);
-    const history = useHistory();  
+    const { filteredMovies } = useContext(GlobalStateContext);  
     
-    const movieFrames = filteredMovies.map((movie) => {       
+    const movieFrames = filteredMovies && filteredMovies.map((movie) => {       
     return (
         <PosterBoard>
             <Poster             

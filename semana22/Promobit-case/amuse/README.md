@@ -8,6 +8,10 @@ Para garantir que o usuário encontre o filme que está procurando, essa lista d
 
 ---
 
+Link: https://case-paiva.surge.sh
+
+---
+
 ### Funcionalidades:
 
 - Acesso a uma listagem dos filmes mais populares do dia

@@ -1,5 +1,5 @@
 import React from 'react';
-import { BASE_URL,API_KEY} from '../../constants/Urls/base_url';
+import { BASE_URL} from '../../constants/Urls/base_url';
 import { img_url } from '../../constants/Urls/img_url';
 import { goToHome } from '../../route/coordinator';
 import arrow from '../../img/arrow.png';
@@ -9,8 +9,8 @@ import { DetailsButton, InfoBoard, MovieDetailsContainer, PosterBoard} from './s
 
 const MovieDetails = ({match}) => {
   const movieDetails = useRequestDetails([],`${BASE_URL}/${match.params.id}?api_key=${process.env.REACT_APP_API_KEY}`)
-  const history = useHistory();    
-  console.log(movieDetails)
+  const history = useHistory();  
+  
   return (
     <div>
       <DetailsButton onClick={()=>goToHome(history)}>

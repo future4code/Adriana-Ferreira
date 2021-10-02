@@ -8,7 +8,7 @@ export default function Header({ changePage }) {
         <HeaderContainer>
             <img src={logo} alt='logo'/>            
             <HeartsButton onClick={changePage}>
-               <img src={hearts} alt='corações'/>
+               <img src={hearts} alt='2 corações'/>
             </HeartsButton>
         </HeaderContainer >
     );

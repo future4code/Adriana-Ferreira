@@ -1,9 +1,9 @@
 import React from 'react';
+import arrow from '../../img/arrow.png';
+import { useHistory } from 'react-router';
 import { BASE_URL} from '../../constants/Urls/base_url';
 import { img_url } from '../../constants/Urls/img_url';
 import { goToHome } from '../../route/coordinator';
-import arrow from '../../img/arrow.png';
-import { useHistory } from 'react-router';
 import useRequestDetails from '../../hooks/useRequestDetails';
 import { DetailsButton, InfoBoard, MovieDetailsContainer, PosterBoard} from './styled';
 
